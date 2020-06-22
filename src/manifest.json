@@ -1,6 +1,6 @@
 {
     "name": "fbclid remover",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Removes ?fbclid from link when opening page from Facebook.",
     "manifest_version": 2,
     "author": "Vemu (Kamil Kras)",
