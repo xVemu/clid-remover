@@ -1,7 +1,7 @@
 {
-    "name": "fbclid remover",
-    "version": "1.1",
-    "description": "Removes ?fbclid from link when opening page from Facebook.",
+    "name": "Clid Remover",
+    "version": "1.2",
+    "description": "Removes ?fbclid and ?gclid from link when opening page from Facebooks or Googles ad.",
     "manifest_version": 2,
     "author": "Vemu (Kamil Kras)",
     "icons": {
@@ -16,7 +16,9 @@
         "tabs"
     ],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": false
     }
 }

@@ -1,11 +1,7 @@
 `use stict`;
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    let url;
-    if (tab.url.match(/\?fbclid=.*?&/g)) url = tab.url.replace(/fbclid.*?&/g, '');
-    else if (tab.url.match(/\?fbclid=.*/g)) url = tab.url.replace(/\?fbclid.*/g, '');
-    else if (tab.url.match(/&fbclid=.*?&/g)) url = tab.url.replace(/&fbclid.*?&/g, '');
-    else if (tab.url.match(/&fbclid=.*/g)) url = tab.url.replace(/&fbclid.*/g, '');
-    else return;
-    chrome.tabs.update(tab.id, { url: url });
+chrome.tabs.onUpdated.addListener((_tabId, _changeInfo, tab) => {
+    if (tab.url.match(new RegExp(`(\\?|&)(gclid|fbclid)=(.*?&|.*)`, `g`)))
+        chrome.tabs.update(tab.id,
+            { url: tab.url.replace(new RegExp(`(gclid|fbclid)=(.*?&|.*)`, `g`), '') });
 });
