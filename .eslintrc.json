@@ -1,8 +1,11 @@
 {
     "env": {
+        "browser": false,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
     "globals": {
@@ -10,9 +13,14 @@
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2020
     },
     "rules": {
+        "no-undef": "off",
+        "strict": [
+            "error",
+            "global"
+        ],
         "indent": [
             "error",
             4,
@@ -26,22 +34,29 @@
         ],
         "quotes": [
             "error",
-            "backtick"
+            "single",
+            {
+                "allowTemplateLiterals": false
+            }
         ],
         "semi": [
             "error",
-            "always"
+            "never"
         ],
         "arrow-parens": [
-            "error",
+            "warn",
             "as-needed"
         ],
         "prefer-destructuring": [
-            "error",
+            "warn",
             {
                 "object": true,
                 "array": true
             }
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
         ]
     }
 }
